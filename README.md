@@ -3,7 +3,7 @@
 
 # 3D Park
 
-**[Live Demo](https://minnabhoomi.github.io/Dog--saloon/)**
+**[Live Demo](https://minnabhoomi.github.io/park/)**
 
 A basic 3D park created using A-Frame. Explore various park elements like trees, benches, pathways, a fountain, and a merry-go-round. It features simple animations and interactions for a fun, colorful experience.
 
