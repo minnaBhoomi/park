@@ -14,10 +14,10 @@
     <!-- Main Scene -->
     <a-scene>
         <!-- Environment -->
-        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#7CB342" 
-                 material="roughness: 0.8; metalness: 0.2; repeat: 50 50">
+        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" 
+                 material="color: #7CB342; roughness: 0.8; metalness: 0.2; repeat: 50 50">
         </a-plane>
-        <a-sky color="#87CEEB"></a-sky>
+        <a-sky material="color: #87CEEB"></a-sky>
 
         <!-- Dynamic Elements (populated by JS) -->
         <a-entity id="grass-grid"></a-entity>
@@ -26,62 +26,84 @@
 
         <!-- Main Walkways -->
         <a-entity id="paths">
-            <a-plane class="path main-path" position="0 0.01 0" rotation="-90 0 0" width="4" height="30"></a-plane>
-            <a-plane class="path cross-path" position="-10 0.01 0" rotation="-90 90 0" width="4" height="20"></a-plane>
+            <a-plane class="path main-path" position="0 0.01 0" rotation="-90 0 0" width="4" height="30" 
+                     material="color: #C0C0C0"></a-plane>
+            <a-plane class="path cross-path" position="-10 0.01 0" rotation="-90 90 0" width="4" height="20" 
+                     material="color: #C0C0C0"></a-plane>
         </a-entity>
 
         <!-- Play Area -->
         <a-entity id="playground" position="-12 0 -10">
             <!-- Swing Set Structure -->
             <a-entity class="swing-set">
-                <a-box class="frame-top" width="5" height="3" depth="0.2" position="0 1.5 0"></a-box>
-                <a-box class="frame-post" width="0.2" height="3" depth="0.2" position="-2.4 1.5 0"></a-box>
-                <a-box class="frame-post" width="0.2" height="3" depth="0.2" position="2.4 1.5 0"></a-box>
+                <a-box class="frame-top" width="5" height="3" depth="0.2" position="0 1.5 0" 
+                       material="color: #4A4A4A"></a-box>
+                <a-box class="frame-post" width="0.2" height="3" depth="0.2" position="-2.4 1.5 0" 
+                       material="color: #4A4A4A"></a-box>
+                <a-box class="frame-post" width="0.2" height="3" depth="0.2" position="2.4 1.5 0" 
+                       material="color: #4A4A4A"></a-box>
                 
                 <!-- Swings -->
                 <a-entity class="swing" position="-1 2.5 0">
-                    <a-box class="seat" width="0.5" height="0.1" depth="0.5" position="0 -1 0"></a-box>
+                    <a-box class="seat" width="0.5" height="0.1" depth="0.5" position="0 -1 0" 
+                           material="color: #2196F3"></a-box>
                 </a-entity>
                 <a-entity class="swing" position="1 2.5 0">
-                    <a-box class="seat" width="0.5" height="0.1" depth="0.5" position="0 -1 0"></a-box>
+                    <a-box class="seat" width="0.5" height="0.1" depth="0.5" position="0 -1 0" 
+                           material="color: #2196F3"></a-box>
                 </a-entity>
             </a-entity>
 
             <!-- Sandbox Area -->
             <a-entity class="sandbox" position="4 0 2">
-                <a-box class="sand" width="4" height="0.2" depth="4"></a-box>
-                <a-box class="border" width="4.4" height="0.3" depth="0.2" position="0 0.15 2"></a-box>
-                <a-box class="border" width="4.4" height="0.3" depth="0.2" position="0 0.15 -2"></a-box>
-                <a-box class="border" width="0.2" height="0.3" depth="4.4" position="2 0.15 0"></a-box>
-                <a-box class="border" width="0.2" height="0.3" depth="4.4" position="-2 0.15 0"></a-box>
+                <a-box class="sand" width="4" height="0.2" depth="4" material="color: #F4D03F"></a-box>
+                <a-box class="border" width="4.4" height="0.3" depth="0.2" position="0 0.15 2" 
+                       material="color: #CD853F"></a-box>
+                <a-box class="border" width="4.4" height="0.3" depth="0.2" position="0 0.15 -2" 
+                       material="color: #CD853F"></a-box>
+                <a-box class="border" width="0.2" height="0.3" depth="4.4" position="2 0.15 0" 
+                       material="color: #CD853F"></a-box>
+                <a-box class="border" width="0.2" height="0.3" depth="4.4" position="-2 0.15 0" 
+                       material="color: #CD853F"></a-box>
             </a-entity>
 
             <!-- Slide -->
             <a-entity class="slide" position="-4 0 2">
-                <a-box class="slide-surface" width="1" height="2.5" depth="0.2" rotation="0 0 -30" position="0 1.25 0">
-                </a-box>
-                <a-box class="slide-support" width="0.2" height="2" depth="0.2" position="-0.5 1 1"></a-box>
-                <a-box class="slide-support" width="0.2" height="2" depth="0.2" position="-0.5 1 -1"></a-box>
+                <a-box class="slide-surface" width="1" height="2.5" depth="0.2" rotation="0 0 -30" 
+                       position="0 1.25 0" material="color: #E91E63"></a-box>
+                <a-box class="slide-support" width="0.2" height="2" depth="0.2" position="-0.5 1 1" 
+                       material="color: #E91E63"></a-box>
+                <a-box class="slide-support" width="0.2" height="2" depth="0.2" position="-0.5 1 -1" 
+                       material="color: #E91E63"></a-box>
             </a-entity>
         </a-entity>
 
         <!-- Garden Zone -->
         <a-entity id="garden" position="12 0 -10">
-            <a-cylinder class="garden-bed" radius="3" height="0.2" position="0 0.1 0"></a-cylinder>
+            <a-cylinder class="garden-bed" radius="3" height="0.2" position="0 0.1 0" 
+                       material="color: #3E2723"></a-cylinder>
             <a-entity class="flowers" position="0 0.2 0">
-                <a-cone class="flower pink" radius-bottom="0.2" height="0.4" position="-1 0 -1"></a-cone>
-                <a-cone class="flower red" radius-bottom="0.2" height="0.4" position="1 0 1"></a-cone>
-                <a-cone class="flower orange" radius-bottom="0.2" height="0.4" position="-1 0 1"></a-cone>
-                <a-cone class="flower yellow" radius-bottom="0.2" height="0.4" position="1 0 -1"></a-cone>
-                <a-cone class="flower purple" radius-bottom="0.2" height="0.4" position="0 0 0"></a-cone>
+                <a-cone class="flower pink" radius-bottom="0.2" height="0.4" position="-1 0 -1" 
+                       material="color: #FF4081"></a-cone>
+                <a-cone class="flower red" radius-bottom="0.2" height="0.4" position="1 0 1" 
+                       material="color: #E91E63"></a-cone>
+                <a-cone class="flower orange" radius-bottom="0.2" height="0.4" position="-1 0 1" 
+                       material="color: #FF5722"></a-cone>
+                <a-cone class="flower yellow" radius-bottom="0.2" height="0.4" position="1 0 -1" 
+                       material="color: #FFC107"></a-cone>
+                <a-cone class="flower purple" radius-bottom="0.2" height="0.4" position="0 0 0" 
+                       material="color: #9C27B0"></a-cone>
             </a-entity>
         </a-entity>
 
         <!-- Fitness Station -->
         <a-entity id="exercise-zone" position="15 0 0">
-            <a-cylinder class="equipment-post" height="1.2" radius="0.05" position="0 0.6 0"></a-cylinder>
-            <a-cylinder class="equipment-post" height="1.2" radius="0.05" position="2 0.6 0"></a-cylinder>
-            <a-cylinder class="rotating-bar" height="0.05" radius="0.5" position="1 1.2 0"></a-cylinder>
+            <a-cylinder class="equipment-post" height="1.2" radius="0.05" position="0 0.6 0" 
+                       material="color: #1976D2"></a-cylinder>
+            <a-cylinder class="equipment-post" height="1.2" radius="0.05" position="2 0.6 0" 
+                       material="color: #1976D2"></a-cylinder>
+            <a-cylinder class="rotating-bar" height="0.05" radius="0.5" position="1 1.2 0" 
+                       material="color: #1976D2"></a-cylinder>
         </a-entity>
 
         <!-- Scene Lighting -->

@@ -1,9 +1,11 @@
+
 body {
     margin: 0;
     overflow: hidden;
     font-family: 'Arial', sans-serif;
 }
 
+/* Welcome Banner */
 #title {
     position: absolute;
     top: 10px;
@@ -16,49 +18,22 @@ body {
 }
 
 /* A-Frame Scene Element Styles */
-.path {
-    color: #C0C0C0;
-    material: roughness: 0.7; metalness: 0.1;
+.a-enter-vr {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
-.swing-set .frame-top,
-.swing-set .frame-post {
-    color: #4A4A4A;
-    material: metalness: 0.8; roughness: 0.2;
+/* Animation Classes */
+.rotating {
+    animation: rotate 5s infinite linear;
 }
 
-.swing .seat {
-    color: #2196F3;
-    material: metalness: 0.6; roughness: 0.4;
+@keyframes rotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
 }
 
-.sandbox .sand {
-    color: #F4D03F;
-    material: roughness: 0.9; metalness: 0.1;
-}
-
-.sandbox .border {
-    color: #CD853F;
-}
-
-.slide-surface,
-.slide-support {
-    color: #E91E63;
-    material: metalness: 0.6; roughness: 0.4;
-}
-
-.garden-bed {
-    color: #3E2723;
-}
-
-.flower.pink { color: #FF4081; }
-.flower.red { color: #E91E63; }
-.flower.orange { color: #FF5722; }
-.flower.yellow { color: #FFC107; }
-.flower.purple { color: #9C27B0; }
-
-.equipment-post,
-.rotating-bar {
-    color: #1976D2;
-    material: metalness: 0.8; roughness: 0.2;
+.interactive:hover {
+    opacity: 0.8;
 }

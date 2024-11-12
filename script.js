@@ -1,3 +1,7 @@
+// Helper function for random array element selection
+function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 document.addEventListener('DOMContentLoaded', initializePark);
 
@@ -47,7 +51,7 @@ function createGrassPatchTemplate() {
 
     grassBlades.forEach(blade => {
         const cone = document.createElement('a-cone');
-        cone.setAttribute('color', blade.color);
+        cone.setAttribute('material', `color: ${blade.color}`);
         cone.setAttribute('height', blade.height);
         cone.setAttribute('radius-bottom', blade.radius);
         cone.setAttribute('position', blade.pos);
@@ -65,7 +69,6 @@ function generateTrees() {
 
     for (let x = -20; x <= 20; x += 8) {
         for (let z = -20; z <= 20; z += 8) {
-            // Skip areas near paths and playground
             if (isRestrictedArea(x, z)) continue;
 
             if (Math.random() > 0.3) { // 70% chance for tree
@@ -97,7 +100,7 @@ function createTree(treeColors, trunkColors) {
 
     // Add trunk
     const trunk = document.createElement('a-cylinder');
-    trunk.setAttribute('color', trunkColor);
+    trunk.setAttribute('material', `color: ${trunkColor}`);
     trunk.setAttribute('radius', 0.2 * scale);
     trunk.setAttribute('height', 2 * scale);
     trunk.setAttribute('position', `0 ${1 * scale} 0`);
@@ -106,7 +109,7 @@ function createTree(treeColors, trunkColors) {
     // Add foliage layers
     for (let i = 0; i < 3; i++) {
         const foliage = document.createElement('a-cone');
-        foliage.setAttribute('color', treeColor);
+        foliage.setAttribute('material', `color: ${treeColor}`);
         foliage.setAttribute('radius-bottom', (1.2 - i * 0.2) * scale);
         foliage.setAttribute('radius-top', 0);
         foliage.setAttribute('height', 2 * scale);
@@ -126,7 +129,7 @@ function generateBushes() {
         if (Math.random() > 0.3) {
             ['left', 'right'].forEach(side => {
                 const bush = document.createElement('a-sphere');
-                bush.setAttribute('color', getRandomElement(bushColors));
+                bush.setAttribute('material', `color: ${getRandomElement(bushColors)}`);
                 bush.setAttribute('radius', 0.3 + Math.random() * 0.2);
                 
                 const xOffset = side === 'left' ? -2.5 : 2.5;
@@ -136,14 +139,4 @@ function generateBushes() {
             });
         }
     }
-}
-
-// Setup interactive elements
-function setupInteractions() {
-    const swings = document.querySelectorAll('.swing');
-    swings.forEach(swing => {
-        swing.addEventListener('click', () => {
-            alert("Let's swing!");
-        });
-    });
 }
